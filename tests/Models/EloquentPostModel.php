@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\MediaLibrary\Tests\Models;
+namespace Lucadello91\EloquentUuid\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Lucadello91\EloquentUuid\UuidModelTrait;

@@ -4,8 +4,8 @@ namespace Lucadello91\EloquentUuid\Tests;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Events\Dispatcher;
-use Spatie\MediaLibrary\Tests\Models\EloquentPostModel;
-use Spatie\MediaLibrary\Tests\Models\EloquentUserModel;
+use Lucadello91\EloquentUuid\Tests\Models\EloquentPostModel;
+use Lucadello91\EloquentUuid\Tests\Models\EloquentUserModel;
 
 class EloquentUuidTest extends TestCase
 {
@@ -37,17 +37,20 @@ class EloquentUuidTest extends TestCase
      */
     public function testCreation()
     {
-        $model = new EloquentUserModel([
-            'username' => 'username',
-            'password' => 'secret',
+        $creation = EloquentUserModel::create([
+            'username'=> 'username',
+            'password'=> 'secret',
         ]);
 
-        static::assertEquals(36, strlen($model->id));
+        static::assertEquals(36, strlen($creation->id));
 
+        $model = EloquentUserModel::first();
 
         static::assertEquals(36, strlen($model->id));
         static::assertRegExp('/^[0-9a-f-]{36}$/', $model->id);
         static::assertRegExp('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $model->id);
+
+        static::assertEquals($creation->id, $model->id);
     }
 
     public function testRelationshipWithStringUuid()
