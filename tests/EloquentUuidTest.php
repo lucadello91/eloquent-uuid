@@ -16,7 +16,7 @@ class EloquentUuidTest extends TestCase
     {
         $creation = EloquentUserModel::create([
             'username'=> 'username',
-            'password'=> 'secret'
+            'password'=> 'secret',
         ]);
 
         static::assertEquals(36, strlen($creation->id));
@@ -35,12 +35,12 @@ class EloquentUuidTest extends TestCase
     {
         $firstUser = EloquentUserModel::create([
             'username'=> 'first-user',
-            'password'=> 'secret'
+            'password'=> 'secret',
         ]);
 
         $secondUser = EloquentUserModel::create([
             'username'=> 'second-user',
-            'password'=> 'secret'
+            'password'=> 'secret',
         ]);
 
         $postsForFirstUser = [];
@@ -70,7 +70,6 @@ class EloquentUuidTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
-
         Eloquent::setConnectionResolver(
             new DatabaseIntegrationTestConnectionResolver()
         );

@@ -33,7 +33,6 @@ trait UuidModelTrait
     protected static function bootUuidModelTrait(): void
     {
         static::creating(static function ($model) {
-
             $model->keyType = $model->keyType === 'int' ? 'string' : $model->keyType;
             $model->incrementing = false;
 
@@ -59,7 +58,6 @@ trait UuidModelTrait
      * @return bool
      */
     abstract public function hasCast($key, $types = null);
-
 
     /**
      * Resolve a UUID instance for the configured version.
@@ -88,5 +86,4 @@ trait UuidModelTrait
 
         return 'uuid4';
     }
-
 }
