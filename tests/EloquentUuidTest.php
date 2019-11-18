@@ -123,7 +123,6 @@ class EloquentUuidTest extends TestCase
         static::assertEquals($creation->id, $model->id);
     }
 
-
     public function testRelationshipWithBinaryUuid()
     {
         $firstUser = EloquentUserBinaryModel::create([

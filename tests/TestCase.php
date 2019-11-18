@@ -71,7 +71,6 @@ abstract class TestCase extends Orchestra
             $table->timestamps();
         });
 
-
         $app['db']->connection()->getSchemaBuilder()->create('users_binary', function(Blueprint $table) {
             $table->binary('id')->primary();
             $table->string('username');
