@@ -32,11 +32,10 @@ trait UuidModelTrait
      */
     protected static function bootUuidModelTrait(): void
     {
-        static::creating(static function($model) {
+        static::creating(static function(Model $model) {
             $model->configureKeyType();
 
             /* @var Model|static $model */
-            /* @var UuidInterface $uuid */
             $uuid = $model->resolveUuid();
 
             $key = $model->getKeyName();
@@ -51,16 +50,6 @@ trait UuidModelTrait
             $model->configureKeyType();
         });
     }
-
-    /**
-     * Determine whether an attribute should be cast to a native type.
-     *
-     * @param string            $key
-     * @param array|string|null $types
-     *
-     * @return bool
-     */
-    abstract public function hasCast($key, $types = NULL);
 
     /**
      * Resolve a UUID instance for the configured version.
@@ -94,5 +83,18 @@ trait UuidModelTrait
     {
         $this->setKeyType($this->getKeyType() === 'int' ? 'string' : $this->getKeyType());
         $this->incrementing = FALSE;
+
+        if ($this->getKeyType() === 'uuid') {
+            $this->casts = array_merge([$this->getKeyName() => $this->getKeyType()], $this->casts);
+        }
+    }
+
+    protected function castAttribute($key, $value)
+    {
+        if ($value !== NULL && !empty($value) && $this->getCastType($key) === 'uuid') {
+            return Uuid::fromBytes($value)->toString();
+        }
+
+        return parent::castAttribute($key, $value);
     }
 }
