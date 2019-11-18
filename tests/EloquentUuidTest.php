@@ -30,7 +30,6 @@ class EloquentUuidTest extends TestCase
         static::assertEquals($creation->id, $model->id);
     }
 
-
     public function testRelationshipWithStringUuid()
     {
         $firstUser = EloquentUserModel::create([
