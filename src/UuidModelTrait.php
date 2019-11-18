@@ -32,10 +32,10 @@ trait UuidModelTrait
      */
     protected static function bootUuidModelTrait(): void
     {
-        static::creating(static function($model) {
+        static::creating(static function ($model) {
 
-            $model->keyType      = $model->keyType==='int' ? 'string' : $model->keyType;
-            $model->incrementing = FALSE;
+            $model->keyType = $model->keyType === 'int' ? 'string' : $model->keyType;
+            $model->incrementing = false;
 
             /* @var Model|static $model */
             /* @var UuidInterface $uuid */
@@ -43,7 +43,7 @@ trait UuidModelTrait
 
             $key = $model->getKeyName();
 
-            if (isset($model->attributes[$key]) && $model->attributes[$key] !== NULL) {
+            if (isset($model->attributes[$key]) && $model->attributes[$key] !== null) {
                 $uuid = Uuid::fromString(strtolower($model->attributes[$key]));
             }
             $model->attributes[$key] = $model->hasCast($key, 'uuid') ? $uuid->getBytes() : $uuid->toString();
@@ -58,7 +58,7 @@ trait UuidModelTrait
      *
      * @return bool
      */
-    abstract public function hasCast($key, $types = NULL);
+    abstract public function hasCast($key, $types = null);
 
 
     /**
@@ -82,7 +82,7 @@ trait UuidModelTrait
      */
     public function resolveUuidVersion(): string
     {
-        if (property_exists($this, 'uuidVersion') && in_array($this->uuidVersion, $this->uuidVersions, TRUE)) {
+        if (property_exists($this, 'uuidVersion') && in_array($this->uuidVersion, $this->uuidVersions, true)) {
             return $this->uuidVersion;
         }
 

@@ -1,22 +1,22 @@
 <?php
 
-use Lucadello91\EloquentUuid\UuidModelTrait;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Lucadello91\EloquentUuid\UuidModelTrait;
 use PHPUnit\Framework\TestCase;
 
 class EloquentUuidTest extends TestCase
 {
     /**
-     * Tests the creation of model with uuid as primary key
+     * Tests the creation of model with uuid as primary key.
      *
      * @return void
      */
     public function testCreation()
     {
         $creation = EloquentUserModel::create([
-            'username'=>'username',
-            'password'=>'secret'
+            'username'=> 'username',
+            'password'=> 'secret'
         ]);
 
         static::assertEquals(36, strlen($creation->id));
@@ -34,26 +34,26 @@ class EloquentUuidTest extends TestCase
     public function testRelationshipWithStringUuid()
     {
         $firstUser = EloquentUserModel::create([
-            'username'=>'first-user',
-            'password'=>'secret'
+            'username'=> 'first-user',
+            'password'=> 'secret'
         ]);
 
         $secondUser = EloquentUserModel::create([
-            'username'=>'second-user',
-            'password'=>'secret'
+            'username'=> 'second-user',
+            'password'=> 'secret'
         ]);
 
         $postsForFirstUser = [];
         $postsForSecondUser = [];
 
-        for ($i=0; $i < 10; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $postsForFirstUser[] = new EloquentPostModel([
-                'name'=>'First user - post ' . $i,
+                'name'=> 'First user - post '.$i,
             ]);
 
             $postsForSecondUser[] = EloquentPostModel::create([
-                'name'=>'Second user - post ' . $i,
-                'user_id'=>$secondUser->id,
+                'name'   => 'Second user - post '.$i,
+                'user_id'=> $secondUser->id,
             ]);
         }
 
@@ -72,11 +72,11 @@ class EloquentUuidTest extends TestCase
     {
 
         Eloquent::setConnectionResolver(
-            new DatabaseIntegrationTestConnectionResolver
+            new DatabaseIntegrationTestConnectionResolver()
         );
 
         Eloquent::setEventDispatcher(
-            new Illuminate\Events\Dispatcher
+            new Illuminate\Events\Dispatcher()
         );
     }
 
@@ -145,8 +145,6 @@ class EloquentUuidTest extends TestCase
     }
 }
 
-
-
 class EloquentUserModel extends Eloquent
 {
     use UuidModelTrait;
@@ -173,7 +171,6 @@ class EloquentPostModel extends Eloquent
     }
 }
 
-
 class DatabaseIntegrationTestConnectionResolver implements Illuminate\Database\ConnectionResolverInterface
 {
     protected $connection;
@@ -190,7 +187,6 @@ class DatabaseIntegrationTestConnectionResolver implements Illuminate\Database\C
     public function getDefaultConnection()
     {
         return 'default';
-        
     }
 
     public function setDefaultConnection($name)

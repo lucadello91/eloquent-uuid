@@ -4,7 +4,7 @@ An Eloquent UUID Trait to use with Laravel > 5.6
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lucadello91/eloquent-uuid.svg?style=flat-square)](https://packagist.org/packages/lucadello91/eloquent-uuid)
 [![Build Status](https://img.shields.io/travis/lucadello91/eloquent-uuid/master.svg?style=flat-square)](https://travis-ci.org/lucadello91/eloquent-uuid)
 [![StyleCI](https://github.styleci.io/repos/222470946/shield?branch=master)](https://github.styleci.io/repos/222470946)
-[![MIT licensed](https://img.shields.io/github/license/lucadello91/eloquent-uuid)](https://img.shields.io/github/license/lucadello91/eloquent-uuid)
+[![MIT licensed](https://img.shields.io/github/license/lucadello91/eloquent-uuid?style=flat-square)](https://img.shields.io/github/license/lucadello91/eloquent-uuid)
 [![Total Downloads](https://img.shields.io/packagist/dt/lucadello91/eloquent-uuid.svg?style=flat-square)](https://packagist.org/packages/lucadello91/eloquent-uuid)
 
 
