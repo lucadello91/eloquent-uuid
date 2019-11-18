@@ -84,5 +84,6 @@ abstract class TestCase extends Orchestra
             $table->uuid('user_id');
             $table->timestamps();
         });
+
     }
 }
