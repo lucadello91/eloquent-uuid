@@ -16,7 +16,6 @@ class EloquentUuidTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-
         Eloquent::setEventDispatcher(
             new Dispatcher()
         );
@@ -38,8 +37,8 @@ class EloquentUuidTest extends TestCase
     public function testCreation()
     {
         $creation = EloquentUserModel::create([
-            'username'=> 'username',
-            'password'=> 'secret',
+            'username' => 'username',
+            'password' => 'secret',
         ]);
 
         static::assertEquals(36, strlen($creation->id));

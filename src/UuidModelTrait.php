@@ -52,12 +52,6 @@ trait UuidModelTrait
         });
     }
 
-    private function configureKeyType(): void
-    {
-        $this->setKeyType($this->getKeyType() === 'int' ? 'string' : $this->getKeyType());
-        $this->incrementing = FALSE;
-    }
-
     /**
      * Determine whether an attribute should be cast to a native type.
      *
@@ -94,5 +88,11 @@ trait UuidModelTrait
         }
 
         return 'uuid4';
+    }
+
+    private function configureKeyType(): void
+    {
+        $this->setKeyType($this->getKeyType() === 'int' ? 'string' : $this->getKeyType());
+        $this->incrementing = FALSE;
     }
 }

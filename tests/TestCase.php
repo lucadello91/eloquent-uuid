@@ -32,9 +32,15 @@ abstract class TestCase extends Orchestra
         ]);
 
         $app['config']->set('app.key', '6rE9Nz59bGRbeMATftriyQjrpF7DcOQm');
-
     }
 
+    public function tearDown(): void
+    {
+        $app = $this->app;
+
+        $app['db']->connection()->getSchemaBuilder()->drop('users');
+        $app['db']->connection()->getSchemaBuilder()->drop('posts');
+    }
 
     protected function loadEnvironmentVariables(): void
     {
@@ -66,15 +72,4 @@ abstract class TestCase extends Orchestra
             $table->timestamps();
         });
     }
-
-    public function tearDown(): void
-    {
-        $app = $this->app;
-
-        $app['db']->connection()->getSchemaBuilder()->drop('users');
-        $app['db']->connection()->getSchemaBuilder()->drop('posts');
-    }
-
-
-
 }
