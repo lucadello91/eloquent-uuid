@@ -1,31 +1,38 @@
 {
-    "name": "lucadello91/eloquent-uuid",
-    "description": "Laravel Eloquent Model trait for using UUID on primary key",
-    "homepage": "https://github.com/lucadello91/eloquent-uuid",
-    "license": "MIT",
-     "authors": [
-        {
-            "name": "Luca Dell'Orto",
-            "email": "lucadello91@gmail.com"
-        }
-    ],
-    "require": {
-        "illuminate/database": "~5.6.0|~5.7.0|~5.8.0|^6.0",
-        "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0",
-        "ramsey/uuid": "^3.7"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^8.0"
-    },
-   
-    "support": {
-        "issues": "https://github.com/lucadello91/eloquent-uuid/issues",
-        "source": "https://github.com/lucadello91/eloquent-uuid"
-    },
-    "minimum-stability": "stable",
-    "autoload": {
-        "psr-4": {
-            "Lucadello91\\EloquentUuid\\": "src/"
-        }
+  "name": "lucadello91/eloquent-uuid",
+  "description": "Laravel Eloquent Model trait for using UUID on primary key",
+  "homepage": "https://github.com/lucadello91/eloquent-uuid",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Luca Dell'Orto",
+      "email": "lucadello91@gmail.com"
     }
+  ],
+  "require": {
+    "php": "^7.2",
+    "illuminate/database": "~5.6.0|~5.7.0|~5.8.0|^6.0",
+    "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0",
+    "ramsey/uuid": "^3.7"
+  },
+  "require-dev": {
+    "illuminate/events": "~5.6.0|~5.7.0|~5.8.0|^6.0",
+    "orchestra/testbench": "^3.8|^4.0",
+    "phpunit/phpunit": "^8.0"
+  },
+  "support": {
+    "issues": "https://github.com/lucadello91/eloquent-uuid/issues",
+    "source": "https://github.com/lucadello91/eloquent-uuid"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "Lucadello91\\EloquentUuid\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Lucadello91\\EloquentUuid\\Tests\\": "tests"
+    }
+  }
 }
