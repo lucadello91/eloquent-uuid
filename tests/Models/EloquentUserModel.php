@@ -10,8 +10,6 @@ class EloquentUserModel extends Model
     use UuidModelTrait;
     protected $table = 'users';
 
-    protected $keyType = 'string';
-
     protected $guarded = [];
 
     public function posts()
