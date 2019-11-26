@@ -33,7 +33,8 @@ trait UuidModelTrait
     protected static function bootUuidModelTrait(): void
     {
         static::creating(static function(Model $model) {
-            $model->configureKeyType();
+            $model->incrementing = FALSE;
+            $model->addUuidCast();
 
             /* @var Model|static $model */
             $uuid = $model->resolveUuid();
@@ -47,7 +48,8 @@ trait UuidModelTrait
         });
 
         static::retrieved(static function($model) {
-            $model->configureKeyType();
+            $model->incrementing = FALSE;
+            $model->addUuidCast();
         });
     }
 
@@ -79,11 +81,17 @@ trait UuidModelTrait
         return 'uuid4';
     }
 
-    private function configureKeyType(): void
+    public function getKeyType()
     {
-        $this->setKeyType($this->getKeyType() === 'int' ? 'string' : $this->getKeyType());
-        $this->incrementing = FALSE;
+        if ($this->keyType !== 'uuid') {
+            return 'string';
+        }
 
+        return 'uuid';
+    }
+
+    private function addUuidCast(): void
+    {
         if ($this->getKeyType() === 'uuid') {
             $this->casts = array_merge([$this->getKeyName() => $this->getKeyType()], $this->casts);
         }
