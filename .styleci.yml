@@ -1,9 +1,5 @@
 preset: laravel
 
-enabled:
-  - align_equals
-  - uppercase_constants
-
 disabled:
   - single_class_element_per_statement
   - self_accessor
@@ -11,5 +7,4 @@ disabled:
   - function_declaration
   - unalign_equals
   - no_blank_lines_after_class_opening
-  - lowercase_constants
   - not_operator_with_successor_space
