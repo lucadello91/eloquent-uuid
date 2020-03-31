@@ -11,14 +11,14 @@
   ],
   "require": {
     "php": "^7.2",
-    "illuminate/database": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
-    "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
-    "ramsey/uuid": "^3.7"
+    "illuminate/database": "5.6.*|5.7.*|5.8.*|^6.0|^7.0",
+    "illuminate/support": "5.6.*|5.7.*|5.8.*|^6.0|^7.0",
+    "ramsey/uuid": "^3|^4"
   },
   "require-dev": {
     "illuminate/events": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
-    "orchestra/testbench": "^3.8|^4.0",
-    "phpunit/phpunit": "^8.0"
+    "orchestra/testbench": "3.8.*|3.9.*|^4.0|^5.0",
+    "phpunit/phpunit": "^8.0|^9.0"
   },
   "support": {
     "issues": "https://github.com/lucadello91/eloquent-uuid/issues",
