@@ -33,7 +33,7 @@ trait UuidModelTrait
     protected static function bootUuidModelTrait(): void
     {
         static::creating(static function(Model $model) {
-            $model->incrementing = FALSE;
+            $model->incrementing = false;
             $model->addUuidCast();
 
             /* @var Model|static $model */
@@ -41,14 +41,14 @@ trait UuidModelTrait
 
             $key = $model->getKeyName();
 
-            if (isset($model->attributes[$key]) && $model->attributes[$key] !== NULL) {
+            if (isset($model->attributes[$key]) && $model->attributes[$key] !== null) {
                 $uuid = Uuid::fromString(strtolower($model->attributes[$key]));
             }
             $model->attributes[$key] = $model->hasCast($key, 'uuid') ? $uuid->getBytes() : $uuid->toString();
         });
 
         static::retrieved(static function($model) {
-            $model->incrementing = FALSE;
+            $model->incrementing = false;
             $model->addUuidCast();
         });
     }
@@ -74,7 +74,7 @@ trait UuidModelTrait
      */
     public function resolveUuidVersion(): string
     {
-        if (property_exists($this, 'uuidVersion') && in_array($this->uuidVersion, $this->uuidVersions, TRUE)) {
+        if (property_exists($this, 'uuidVersion') && in_array($this->uuidVersion, $this->uuidVersions, true)) {
             return $this->uuidVersion;
         }
 
@@ -90,19 +90,19 @@ trait UuidModelTrait
         return 'uuid';
     }
 
+    protected function castAttribute($key, $value)
+    {
+        if ($value !== null && !empty($value) && $this->getCastType($key) === 'uuid') {
+            return Uuid::fromBytes($value)->toString();
+        }
+
+        return parent::castAttribute($key, $value);
+    }
+
     private function addUuidCast(): void
     {
         if ($this->getKeyType() === 'uuid') {
             $this->casts = array_merge([$this->getKeyName() => $this->getKeyType()], $this->casts);
         }
-    }
-
-    protected function castAttribute($key, $value)
-    {
-        if ($value !== NULL && !empty($value) && $this->getCastType($key) === 'uuid') {
-            return Uuid::fromBytes($value)->toString();
-        }
-
-        return parent::castAttribute($key, $value);
     }
 }
