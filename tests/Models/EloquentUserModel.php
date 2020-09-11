@@ -8,6 +8,7 @@ use Lucadello91\EloquentUuid\UuidModelTrait;
 class EloquentUserModel extends Model
 {
     use UuidModelTrait;
+
     protected $table = 'users';
 
     protected $guarded = [];

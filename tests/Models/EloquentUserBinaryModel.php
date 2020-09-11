@@ -8,6 +8,7 @@ use Lucadello91\EloquentUuid\UuidModelTrait;
 class EloquentUserBinaryModel extends Model
 {
     use UuidModelTrait;
+
     protected $table = 'users_binary';
 
     protected $keyType = 'uuid';

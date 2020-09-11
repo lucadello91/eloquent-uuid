@@ -8,6 +8,7 @@ use Lucadello91\EloquentUuid\UuidModelTrait;
 class EloquentPostBinaryModel extends Model
 {
     use UuidModelTrait;
+
     protected $table = 'posts_binary';
 
     protected $casts = [

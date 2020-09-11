@@ -1,9 +1,4 @@
 preset: laravel
 
 disabled:
-  - single_class_element_per_statement
-  - concat_without_spaces
-  - function_declaration
-  - unalign_equals
-  - no_blank_lines_after_class_opening
   - not_operator_with_successor_space

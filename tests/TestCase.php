@@ -57,28 +57,28 @@ abstract class TestCase extends Orchestra
      */
     protected function setUpDatabase($app): void
     {
-        $app['db']->connection()->getSchemaBuilder()->create('users', function(Blueprint $table) {
+        $app['db']->connection()->getSchemaBuilder()->create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('username');
             $table->string('password');
             $table->timestamps();
         });
 
-        $app['db']->connection()->getSchemaBuilder()->create('posts', function(Blueprint $table) {
+        $app['db']->connection()->getSchemaBuilder()->create('posts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
             $table->uuid('user_id');
             $table->timestamps();
         });
 
-        $app['db']->connection()->getSchemaBuilder()->create('users_binary', function(Blueprint $table) {
+        $app['db']->connection()->getSchemaBuilder()->create('users_binary', function (Blueprint $table) {
             $table->binary('id')->primary();
             $table->string('username');
             $table->string('password');
             $table->timestamps();
         });
 
-        $app['db']->connection()->getSchemaBuilder()->create('posts_binary', function(Blueprint $table) {
+        $app['db']->connection()->getSchemaBuilder()->create('posts_binary', function (Blueprint $table) {
             $table->binary('id')->primary();
             $table->string('name');
             $table->uuid('user_id');
