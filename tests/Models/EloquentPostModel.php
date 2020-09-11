@@ -8,6 +8,7 @@ use Lucadello91\EloquentUuid\UuidModelTrait;
 class EloquentPostModel extends Model
 {
     use UuidModelTrait;
+
     protected $table = 'posts';
 
     protected $guarded = [];

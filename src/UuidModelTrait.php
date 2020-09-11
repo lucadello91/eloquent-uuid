@@ -23,37 +23,6 @@ trait UuidModelTrait
     ];
 
     /**
-     * Boot the trait, adding a creating observer.
-     *
-     * When persisting a new model instance, we resolve the UUID field, then set
-     * a fresh UUID, taking into account if we need to cast to binary or not.
-     *
-     * @return void
-     */
-    protected static function bootUuidModelTrait(): void
-    {
-        static::creating(static function(Model $model) {
-            $model->incrementing = false;
-            $model->addUuidCast();
-
-            /* @var Model|static $model */
-            $uuid = $model->resolveUuid();
-
-            $key = $model->getKeyName();
-
-            if (isset($model->attributes[$key]) && $model->attributes[$key] !== null) {
-                $uuid = Uuid::fromString(strtolower($model->attributes[$key]));
-            }
-            $model->attributes[$key] = $model->hasCast($key, 'uuid') ? $uuid->getBytes() : $uuid->toString();
-        });
-
-        static::retrieved(static function($model) {
-            $model->incrementing = false;
-            $model->addUuidCast();
-        });
-    }
-
-    /**
      * Resolve a UUID instance for the configured version.
      *
      * @return UuidInterface
@@ -97,6 +66,37 @@ trait UuidModelTrait
         }
 
         return parent::castAttribute($key, $value);
+    }
+
+    /**
+     * Boot the trait, adding a creating observer.
+     *
+     * When persisting a new model instance, we resolve the UUID field, then set
+     * a fresh UUID, taking into account if we need to cast to binary or not.
+     *
+     * @return void
+     */
+    protected static function bootUuidModelTrait(): void
+    {
+        static::creating(static function (Model $model) {
+            $model->incrementing = false;
+            $model->addUuidCast();
+
+            /* @var Model|static $model */
+            $uuid = $model->resolveUuid();
+
+            $key = $model->getKeyName();
+
+            if (isset($model->attributes[$key]) && $model->attributes[$key] !== null) {
+                $uuid = Uuid::fromString(strtolower($model->attributes[$key]));
+            }
+            $model->attributes[$key] = $model->hasCast($key, 'uuid') ? $uuid->getBytes() : $uuid->toString();
+        });
+
+        static::retrieved(static function ($model) {
+            $model->incrementing = false;
+            $model->addUuidCast();
+        });
     }
 
     private function addUuidCast(): void

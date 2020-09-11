@@ -67,7 +67,7 @@ class EloquentUuidTest extends TestCase
             'password' => 'secret',
         ]);
 
-        $postsForFirstUser  = [];
+        $postsForFirstUser = [];
         $postsForSecondUser = [];
 
         for ($i = 0; $i < 10; $i++) {
@@ -135,7 +135,7 @@ class EloquentUuidTest extends TestCase
             'password' => 'secret',
         ]);
 
-        $postsForFirstUser  = [];
+        $postsForFirstUser = [];
         $postsForSecondUser = [];
 
         for ($i = 0; $i < 10; $i++) {
