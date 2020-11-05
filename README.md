@@ -1,4 +1,6 @@
-# eloquent-uuid
+![](https://banners.beyondco.de/Eloquent%20UUID.png?theme=light&packageName=lucadello91%2Feloquent-uuid&pattern=fallingTriangles&style=style_1&description=Easy+eloquent+UUID+trait&md=1&fontSize=100px&images=key)
+
+# Eloquent UUID
 An Eloquent UUID Trait to use with Laravel > 5.6
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lucadello91/eloquent-uuid.svg?style=flat-square)](https://packagist.org/packages/lucadello91/eloquent-uuid)
