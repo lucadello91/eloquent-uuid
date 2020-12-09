@@ -2,9 +2,13 @@
 
 All notable changes to `eloquent-uuid` will be documented in this file
 
+## 1.2.0 - 2020-12-09
+
+- Added support for PHP 8
+
 ## 1.1.2 - 2020-09-11
 
-- Added support for laravel 7
+- Added support for laravel 8
 
 ## 1.1.1 - 2020-03-31
 
