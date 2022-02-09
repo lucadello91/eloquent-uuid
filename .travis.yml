@@ -1,9 +1,9 @@
 language: php
 
 php:
-  - 7.3
   - 7.4
   - 8.0
+  - 8.1
 
 env:
   matrix:
@@ -13,6 +13,8 @@ env:
     - LARAVEL='^7.0' COMPOSER_FLAGS="--prefer-lowest"
     - LARAVEL='^8.0'
     - LARAVEL='^8.0' COMPOSER_FLAGS="--prefer-lowest"
+    - LARAVEL='^9.0'
+    - LARAVEL='^9.0' COMPOSER_FLAGS="--prefer-lowest"
 
 install:
   - composer require "laravel/framework:${LARAVEL}" --prefer-dist --no-interaction --no-suggest ${COMPOSER_FLAGS}
