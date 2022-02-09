@@ -1,18 +1,25 @@
 language: php
 
 php:
-  - 7.3
   - 7.4
   - 8.0
 
 env:
-  matrix:
     - LARAVEL='^6.0'
     - LARAVEL='^6.0' COMPOSER_FLAGS="--prefer-lowest"
     - LARAVEL='^7.0'
     - LARAVEL='^7.0' COMPOSER_FLAGS="--prefer-lowest"
     - LARAVEL='^8.0'
     - LARAVEL='^8.0' COMPOSER_FLAGS="--prefer-lowest"
+    - LARAVEL='^9.0'
+    - LARAVEL='^9.0' COMPOSER_FLAGS="--prefer-lowest"
+
+matrix:
+  exclude:
+    - php: 7.4
+      env: LARAVEL='^9.0'
+    - php: 7.4
+      env: LARAVEL='^9.0' COMPOSER_FLAGS="--prefer-lowest"
 
 install:
   - composer require "laravel/framework:${LARAVEL}" --prefer-dist --no-interaction --no-suggest ${COMPOSER_FLAGS}
