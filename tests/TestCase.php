@@ -43,7 +43,7 @@ abstract class TestCase extends Orchestra
 
     protected function loadEnvironmentVariables(): void
     {
-        if (! file_exists(__DIR__ . '/../.env')) {
+        if (!file_exists(__DIR__ . '/../.env')) {
             return;
         }
 
