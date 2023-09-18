@@ -74,7 +74,7 @@ class EloquentUuidTest extends TestCase
             ]);
 
             $postsForSecondUser[] = EloquentPostModel::create([
-                'name'    => 'Second user - post ' . $i,
+                'name' => 'Second user - post ' . $i,
                 'user_id' => $secondUser->id,
             ]);
         }
@@ -104,7 +104,7 @@ class EloquentUuidTest extends TestCase
     public function testCreationStringBinaryUuidWithCast()
     {
         $creation = EloquentPostBinaryModel::create([
-            'name'    => 'Post Example',
+            'name' => 'Post Example',
             'user_id' => Uuid::uuid4()->toString(),
         ]);
 
@@ -138,7 +138,7 @@ class EloquentUuidTest extends TestCase
             ]);
 
             $postsForSecondUser[] = EloquentPostBinaryModel::create([
-                'name'    => 'Second user - post ' . $i,
+                'name' => 'Second user - post ' . $i,
                 'user_id' => $secondUser->id,
             ]);
         }
