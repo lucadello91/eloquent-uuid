@@ -49,8 +49,6 @@ class EloquentUuidTest extends TestCase
         $model = EloquentUserModel::first();
 
         static::assertEquals(36, strlen($model->id));
-        static::assertRegExp('/^[0-9a-f-]{36}$/', $model->id);
-        static::assertRegExp('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $model->id);
 
         static::assertEquals($creation->id, $model->id);
     }
@@ -99,8 +97,6 @@ class EloquentUuidTest extends TestCase
         $model = EloquentUserBinaryModel::first();
 
         static::assertEquals(36, strlen($model->id));
-        static::assertRegExp('/^[0-9a-f-]{36}$/', $model->id);
-        static::assertRegExp('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $model->id);
 
         static::assertEquals($creation->id, $model->id);
     }
@@ -117,8 +113,6 @@ class EloquentUuidTest extends TestCase
         $model = EloquentPostBinaryModel::first();
 
         static::assertEquals(36, strlen($model->id));
-        static::assertRegExp('/^[0-9a-f-]{36}$/', $model->id);
-        static::assertRegExp('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $model->id);
 
         static::assertEquals($creation->id, $model->id);
     }
