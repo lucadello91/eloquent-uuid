@@ -7,18 +7,23 @@
     {
       "name": "Luca Dell'Orto",
       "email": "lucadello91@gmail.com"
+    },
+    {
+      "name": "DV Soft srl",
+      "email": "developers@dvsoft.it",
+      "role": "Developer"
     }
   ],
   "require": {
-    "php": "^7.4|^8.0",
-    "illuminate/database": "^7.30.4|^8|^9|^10",
-    "illuminate/support": "^7|^8|^9|^10",
+    "php": "^8.0",
+    "illuminate/database": "^8|^9|^10",
+    "illuminate/support": "^8|^9|^10",
     "ramsey/uuid": "^3|^4"
   },
   "require-dev": {
-    "illuminate/events":"^7|^8|^9|^10",
-    "orchestra/testbench": "^5|^6|^7",
-    "phpunit/phpunit": "^9.1"
+    "illuminate/events":"^8|^9|^10",
+    "orchestra/testbench": "^6.0|^7.0|^8.0",
+    "phpunit/phpunit": "^9.1|^10.0"
   },
   "support": {
     "issues": "https://github.com/lucadello91/eloquent-uuid/issues",
