@@ -61,7 +61,7 @@ trait UuidModelTrait
 
     protected function castAttribute($key, $value)
     {
-        if ($value !== null && ! empty($value) && $this->getCastType($key) === 'uuid') {
+        if ($value !== null && !empty($value) && $this->getCastType($key) === 'uuid') {
             return Uuid::fromBytes($value)->toString();
         }
 
