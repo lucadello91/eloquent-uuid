@@ -2,9 +2,14 @@
 
 All notable changes to `eloquent-uuid` will be documented in this file
 
+## 1.4.0 - 2023-09-18
+
+- Added support for Laravel 10
+- Dropped support for laravel 6 and 7
+
 ## 1.4.0 - 2021-06-10
 
-- Added support for PHP 9
+- Added support for Laravel 9
 
 ## 1.3.0 - 2021-06-10
 

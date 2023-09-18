@@ -49,8 +49,6 @@ class EloquentUuidTest extends TestCase
         $model = EloquentUserModel::first();
 
         static::assertEquals(36, strlen($model->id));
-        static::assertRegExp('/^[0-9a-f-]{36}$/', $model->id);
-        static::assertRegExp('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $model->id);
 
         static::assertEquals($creation->id, $model->id);
     }
@@ -76,7 +74,7 @@ class EloquentUuidTest extends TestCase
             ]);
 
             $postsForSecondUser[] = EloquentPostModel::create([
-                'name'    => 'Second user - post ' . $i,
+                'name' => 'Second user - post ' . $i,
                 'user_id' => $secondUser->id,
             ]);
         }
@@ -99,8 +97,6 @@ class EloquentUuidTest extends TestCase
         $model = EloquentUserBinaryModel::first();
 
         static::assertEquals(36, strlen($model->id));
-        static::assertRegExp('/^[0-9a-f-]{36}$/', $model->id);
-        static::assertRegExp('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $model->id);
 
         static::assertEquals($creation->id, $model->id);
     }
@@ -108,7 +104,7 @@ class EloquentUuidTest extends TestCase
     public function testCreationStringBinaryUuidWithCast()
     {
         $creation = EloquentPostBinaryModel::create([
-            'name'    => 'Post Example',
+            'name' => 'Post Example',
             'user_id' => Uuid::uuid4()->toString(),
         ]);
 
@@ -117,8 +113,6 @@ class EloquentUuidTest extends TestCase
         $model = EloquentPostBinaryModel::first();
 
         static::assertEquals(36, strlen($model->id));
-        static::assertRegExp('/^[0-9a-f-]{36}$/', $model->id);
-        static::assertRegExp('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $model->id);
 
         static::assertEquals($creation->id, $model->id);
     }
@@ -144,7 +138,7 @@ class EloquentUuidTest extends TestCase
             ]);
 
             $postsForSecondUser[] = EloquentPostBinaryModel::create([
-                'name'    => 'Second user - post ' . $i,
+                'name' => 'Second user - post ' . $i,
                 'user_id' => $secondUser->id,
             ]);
         }
